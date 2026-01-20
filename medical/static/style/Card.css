@@ -1,0 +1,158 @@
+.card {
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   CART PAGE – UNIQUE STYLE
+   ========================= */
+
+body {
+    background: linear-gradient(135deg, #f4f9ff, #eef2f7);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main container */
+.container {
+    max-width: 900px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Page title */
+.container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Table styling */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.table thead {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: #ffffff;
+}
+
+.table thead th {
+    text-align: center;
+    padding: 14px;
+    font-size: 15px;
+}
+
+.table tbody td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 14px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Table row hover */
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f8ff;
+    transform: scale(1.01);
+}
+
+/* Quantity buttons */
+.table .btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+/* Decrease button */
+.btn-danger {
+    background-color: #ff6b6b;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #e63946;
+}
+
+/* Increase button */
+.btn-success {
+    background-color: #51cf66;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #2b9348;
+}
+
+/* Total price section */
+h4 {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #1d3557;
+    font-weight: 700;
+}
+
+/* Empty cart message */
+.container p {
+    text-align: center;
+    font-size: 18px;
+    color: #6c757d;
+    padding: 40px 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table, 
+    .table tbody, 
+    .table tr, 
+    .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #eee;
+    }
+
+    .table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        color: #555;
+        text-align: left;
+    }
+
+    h4 {
+        text-align: center;
+    }
+}

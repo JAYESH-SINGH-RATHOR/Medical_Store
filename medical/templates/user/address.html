@@ -1,0 +1,24 @@
+{% extends "user/navbar.html" %}
+{% block title %}
+
+{% endblock title %}
+
+{% block body %}
+<h3>Delivery Address</h3>
+
+<form method="POST">
+  {% csrf_token %}
+  <input name="name" placeholder="Full Name" required>
+  <input name="phone" placeholder="Mobile Number" required>
+  <input name="location" placeholder="Current Location" required>
+  <input name="building" placeholder="Building Name" required>
+  <textarea name="address" placeholder="Full Address" required></textarea>
+  <input name="pincode" placeholder="Pincode" required>
+
+  <button class="btn btn-primary w-100 mt-3">
+    Continue to Payment
+  </button>
+</form>
+
+{% endblock body %}
+

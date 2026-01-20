@@ -1,0 +1,321 @@
+.fa-heart-circle-plus {
+    font-size: 2.3rem;
+    color: #ff4757;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.fa-heart-circle-plus:hover {
+    transform: scale(1.2);
+    color: #ff6b81;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.navbar {
+    border-radius: 20px;
+    margin: 16px auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 50%;
+    justify-content: space-between;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    padding: 0.6rem 1.1rem;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: 
+        color 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* Animated underline */
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4d6d, #ff9f1c);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+}
+.navbar-nav .nav-link:hover::after {
+    width: 70%;
+    left: 15%;
+}
+
+/* for index of user app page  */
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-height: 600px; /* optional */
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff; /* text color */
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+
+/* // registration form  */
+
+/* Container */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    /* background: linear-gradient(135deg, #6a11cb, #2575fc); */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Card */
+.register-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+/* Heading */
+.register-card h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Form Groups */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    color: #2575fc;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #2575fc;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #6a11cb;
+}
+
+/* Login link */
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    text-decoration: none;
+}
+
+/* login form style  */
+
+.login {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login form card */
+.login form {
+    width: 360px;
+    padding: 35px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Input group */
+.form-group {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 12px 10px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+/* Floating labels */
+.form-group label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d1d5db;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* Label animation */
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -8px;
+    font-size: 12px;
+    color: #38bdf8;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button hover */
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(56, 189, 248, 0.4);
+}
+
+/* Extra links */
+.extra-links {
+    margin-top: 18px;
+    font-size: 14px;
+    color: #e5e7eb;
+    text-align: center;
+}
+
+/* Register link */
+.extra-links a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* for medicine page card  */
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.card img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    height: 150px;
+}
+
+
+/* labtest page style */
+
+.slide img{
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+
+}
+
+/* labdetails_page  */
+
+.details{
+    margin-top: 20px;
+
+}
+
+.details img{
+    height: 100px;
+    width: 80%;
+    border-radius: 10px;
+    object-fit: cover;
+    padding: 10%;
+}

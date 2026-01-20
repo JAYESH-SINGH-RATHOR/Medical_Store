@@ -1,0 +1,32 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+<div class="register-container">
+    <div class="register-card">
+        <h2>Create Account</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" required>
+                <label>Email</label>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+            <div class="form-group">
+                <input type="password" name="confirm_password" required>
+                <label>Confirm Password</label>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+</div>
+{% endblock body %}

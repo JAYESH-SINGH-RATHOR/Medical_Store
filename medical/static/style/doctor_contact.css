@@ -1,0 +1,104 @@
+/* Wrapper */
+.contact-wrapper {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.contact-card {
+    width: 420px;
+    padding: 35px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Heading */
+.contact-card h2 {
+    text-align: center;
+    margin-bottom: 6px;
+    color: #111827;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+/* Form Group */
+.form-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+/* Inputs & Textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid #9ca3af;
+    background: transparent;
+    outline: none;
+    color: #111827;
+}
+
+/* Labels */
+.form-group label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #6b7280;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* Float effect */
+.form-group input:focus + label,
+.form-group input:valid + label,
+.form-group textarea:focus + label,
+.form-group textarea:valid + label {
+    top: -8px;
+    font-size: 12px;
+    color: #2563eb;
+}
+
+/* Date label fix */
+.date-label {
+    top: -8px;
+    font-size: 12px;
+}
+
+/* File input */
+.file-group input {
+    border: none;
+    padding-left: 0;
+    font-size: 14px;
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(37,99,235,0.4);
+}

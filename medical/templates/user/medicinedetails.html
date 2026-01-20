@@ -1,0 +1,43 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}{{ medicine.title }}{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/medicinedetails.css' %}">
+
+<div class="container-fluid mt-5 medicine-wrapper mb-4">
+  <div class="container medicine-card">
+    <div class="row align-items-center g-5">
+
+      <!-- Image Section -->
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="medicine-img-box">
+          <img src="{{ medicine.img.url }}" alt="{{ medicine.title }}">
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="col-lg-6 col-md-6 col-sm-12 ">
+        <div class="medicine-info ">
+          <h1>{{ medicine.title }}</h1>
+          <span class="divider"></span>
+
+          {% for detail in details %}
+  <p><strong>Description:</strong> {{ detail.description }}</p>
+  <p><strong>Price:</strong> ₹{{ detail.price }}</p>
+  <p><strong>Expiry Date:</strong> {{ detail.expdate }}</p>
+  <p><strong>Manufacturer:</strong> {{ detail.manufacturer }}</p>
+{% endfor %}
+
+
+    <a href="{% url 'add_to_cart' medicine.id %}">
+    <button class="buy-btn">Add to Cart</button>
+    </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="{% static 'js/medicinedetails.js' %}"></script>
+{% endblock body %}

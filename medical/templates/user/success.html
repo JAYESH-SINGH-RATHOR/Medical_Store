@@ -1,0 +1,12 @@
+{% extends "user/navbar.html" %}
+{% block title %}Order Success{% endblock title %}
+{% block body %}
+<h2>
+     Payment Successful</h2>
+<p>Total Paid: ₹{{ total }}</p>
+
+<a href="{% url 'home' %}" class="btn btn-primary">
+  Continue Shopping
+</a>
+
+{% endblock body %}

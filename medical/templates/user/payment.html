@@ -1,0 +1,54 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}Payment{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/payment.css' %}">
+
+<div class="container mt-5 text-center">
+
+  <h3 class="mb-4">Payment</h3>
+
+  <div class="card p-4 mx-auto position-relative" style="max-width: 400px;">
+
+    <p class="fs-5">
+      Amount Payable:
+      <strong>₹<span id="amount">{{ total }}</span></strong>
+    </p>
+
+    <!-- PAY NOW BUTTON -->
+    <button id="pay-btn" class="btn btn-success w-100 mt-3">
+      Pay Now
+    </button>
+
+    <!-- PAYMENT LOADING -->
+    <div id="payment-loading" class="d-none mt-4">
+      <img src="{% static 'images/payment.gif' %}" width="120" alt="Processing Payment">
+      <p class="mt-3 text-success fw-bold">Processing Payment...</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const payBtn = document.getElementById("pay-btn");
+const loadingDiv = document.getElementById("payment-loading");
+
+payBtn.addEventListener("click", function () {
+
+  // Disable button
+  payBtn.disabled = true;
+  payBtn.innerText = "Processing...";
+
+  // Show GIF animation
+  loadingDiv.classList.remove("d-none");
+
+  // Simulate payment processing (3 seconds)
+  setTimeout(() => {
+    window.location.href = "{% url 'order_success' %}";
+  }, 3000);
+});
+</script>
+
+{% endblock body %}

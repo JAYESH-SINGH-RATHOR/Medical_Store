@@ -1,0 +1,70 @@
+{% extends "user/navbar.html" %} 
+{% load static %} 
+{% block title %}Consult Doctor{% endblock title %} 
+
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'style/Doctor.css' %}" />
+
+<div class="container Doctor">
+  <div class="row mb-4">
+    {% for doctor in doctors %}
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" >
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{doctor.img1.url}}" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="{{doctor.img2.url}}" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="{{doctor.img3.url}}" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% comment %} doctors profile pages  {% endcomment %}
+
+    <div class="row mb-3 mx-1 doctor-grid">
+  {% for data in doctorProfile %}
+    <div class="col-lg-3 col-md-4 col-sm-12 mb-4 d-flex mx-auto">
+      
+      <a href="{% url 'doctor_profile' data.id %}" class="doctor-card w-100">
+        <div class="doctor-img">
+          <img src="{{ data.img.url }}" alt="{{ data.name }}" class="img-fluid">
+        </div>
+
+        <div class="doctor-info text-center">
+          <h3>{{ data.name }}</h3>
+          <h3 class='degree'>{{ data.degree }}</h3>
+          <span class="specialization">{{ data.profession }}</span>
+        </div>
+      </a>
+
+    </div>
+  {% endfor %}
+</div>
+
+
+</div>
+{% endblock %}

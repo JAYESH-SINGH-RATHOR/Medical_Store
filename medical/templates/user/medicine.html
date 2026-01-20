@@ -1,0 +1,21 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}Medicine{% endblock %}
+{% block body %}
+<div class="container-fluid">
+  <div class="row">
+     {% for medicine in medicines %}
+        <div class="col-lg-2 col-md-2 col-sm-6 card mx-3 p-2 my-3 ">
+           <a href="{% url 'medicine_detail' medicine.id %}" style="text-decoration:none; ">
+                <img src="{{medicine.img.url}}" alt="{{medicine.id}}">
+            <h2>{{medicine.title}}</h2>
+            </a>
+        </div>
+    {% endfor %} 
+
+    
+    </div>
+
+   </div>
+</div>
+{% endblock body %}

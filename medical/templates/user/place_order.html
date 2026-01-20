@@ -1,0 +1,64 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}User Login{% endblock title %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/place_order.css' %}">
+<div class="order-container">
+
+    <!-- Address Form -->
+    <form id="orderForm">
+        <h2>📦 Place Your Order</h2>
+
+        <div class="row">
+            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Mobile Number" required>
+        </div>
+
+        <input type="text" placeholder="Current Location" required>
+        <input type="text" placeholder="Building / House Name" required>
+        <textarea placeholder="Full Address" required></textarea>
+
+        <div class="row">
+            <input type="text" placeholder="City" required>
+            <input type="text" placeholder="Pincode" required>
+        </div>
+
+        <button type="button" onclick="showPayment()">Place Order</button>
+    </form>
+
+    <!-- Payment Section -->
+    <div id="paymentSection" class="hidden">
+        <h2>💳 Payment Method</h2>
+
+        <div class="payment-methods">
+            <label><input type="radio" name="pay" checked> UPI</label>
+            <label><input type="radio" name="pay"> Debit Card</label>
+            <label><input type="radio" name="pay"> Credit Card</label>
+            <label><input type="radio" name="pay"> Net Banking</label>
+        </div>
+
+        <div class="coupon">
+            <input type="text" id="coupon" placeholder="Enter Coupon Code">
+            <button onclick="applyCoupon()">Apply</button>
+        </div>
+
+        <div class="summary">
+            <p>Amount: ₹<span id="amount">1000</span></p>
+            <p>Discount: ₹<span id="discount">0</span></p>
+            <h3>Total Payable: ₹<span id="total">1000</span></h3>
+        </div>
+
+        <button class="pay-btn" onclick="paymentSuccess()">Pay Now</button>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="hidden success">
+        <h2>✅ Payment Successful</h2>
+        <p>Your order has been placed successfully!</p>
+    </div>
+
+</div>
+
+<script src="{% static 'js/place_order.js' %}"></script>
+
+{% endblock body %}
