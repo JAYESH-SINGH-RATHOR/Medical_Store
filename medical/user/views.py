@@ -20,7 +20,6 @@ def test(request):
     })
 
 
-
 def labtest_detail(request, labtest_id):
     labtest = get_object_or_404(Labtest, id=labtest_id)
     items = labtest.items.all()
@@ -82,7 +81,6 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
@@ -196,3 +194,36 @@ def order_success(request):
     request.session.pop('cart', None)
 
     return render(request, 'user/success.html', {'total': total})
+
+def Orders(request):
+    return render(request , 'user/login/Orders.html')
+
+def edit_profile(request):
+    return redirect("registration")
+
+def complaint(request):
+    if request.method == 'POST':
+        Complaint.objects.create(
+            user=request.user,
+            title=request.POST.get('title'),
+            description=request.POST.get('description'),
+            image=request.FILES.get('image'),
+            date=request.POST.get('date')
+        )
+        return redirect('profile')
+    return render(request , 'user/login/complaint.html')
+
+def help(request):
+    return render(request , 'user/login/bot.html')
+
+def profile(request):
+    # complaints = Complaint.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, "user/login/profile.html")
+
+# @login_required
+# def delete_complaint(request, id):
+#     complaint = get_object_or_404(Complaint, id=id, user=request.user)
+
+#     if request.method == 'POST':
+#         complaint.delete()
+#         return redirect('profile')

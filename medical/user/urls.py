@@ -20,7 +20,13 @@ urlpatterns = [
      path('place-order/', views.place_order, name='place_order'),
     path('address/', views.address_page, name='address_page'),
     path('payment/', views.payment_page, name='payment_page'),
-    path('success/', views.order_success, name='order_success')
-
-
+    path('success/', views.order_success, name='order_success'),
+    path('dashboard/Orders', views.Orders, name='Orders'),
+    path('dashboard/edit', views.edit_profile, name='edit_profile'),
+    path('dashboard/complaint', views.complaint, name='complaint'),
+    #  path('dashboard/complaint/create/', views.complaint, name='create_complaint'),
+    # path('dashboard/complaint/delete/<int:id>/', views.delete_complaint, name='delete_complaint'),
+    path('dashboard/help', views.help, name='help'),
+    path('dashboard/profile', views.profile, name='profile'),
+    
 ]

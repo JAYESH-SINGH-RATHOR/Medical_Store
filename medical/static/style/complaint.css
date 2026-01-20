@@ -1,0 +1,112 @@
+.complaint-wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.complaint-card {
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(135deg, #f8fafc, #f0f9ff);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* ✅ keep card above */
+}
+
+/* Accent background (FIXED) */
+.complaint-card::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  background: rgba(37, 99, 235, 0.15);
+  border-radius: 50%;
+  z-index: 0;              /* ✅ behind content */
+  pointer-events: none;    /* ✅ no interaction */
+}
+
+/* Keep all content above accent */
+.complaint-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Title */
+.complaint-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.complaint-subtitle {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 16px;
+}
+
+/* 🔥 FIX label overlap from dashboard.css */
+.form-group label {
+  position: static !important;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  outline: none;
+  font-size: 0.9rem;
+  background: #ffffff;
+  transition: 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* File input */
+.form-group input[type="file"] {
+  padding: 6px;
+  background: #f8fafc;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(to right, #2563eb, #38bdf8);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}

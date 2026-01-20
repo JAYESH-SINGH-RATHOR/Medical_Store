@@ -1,0 +1,54 @@
+{% extends "user/dashboard.html" %}
+{% load static %}
+{% block title %}Raise Complaint{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'style/complaint.css' %}">
+
+<div class="complaint-wrapper">
+  <div class="complaint-card">
+
+    <h2 class="complaint-title">Raise a Complaint</h2>
+    <p class="complaint-subtitle">
+      Describe your issue clearly. Our team will review it shortly.
+    </p>
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Complaint Title -->
+      <div class="form-group">
+        <label>Complaint Title</label>
+        <input type="text" name="title" placeholder="Short summary of the issue" required>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label>Description</label>
+        <textarea name="description" rows="4" placeholder="Explain your complaint in detail..." required></textarea>
+      </div>
+
+      <!-- Upload Image -->
+      <div class="form-group">
+        <label>Upload Image (optional)</label>
+        <input type="file" name="image" accept="image/*">
+      </div>
+
+      <!-- Date -->
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="date" required>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">
+        Submit Complaint
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock body %}

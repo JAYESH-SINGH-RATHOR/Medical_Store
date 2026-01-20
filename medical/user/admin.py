@@ -63,3 +63,7 @@ admin.site.register(DoctorProfile , DoctorProfileAdmin)
 class AppointmentAdmin(admin.ModelAdmin):
     list_display = ['id' , 'doctorname' , 'username' , 'email' , 'phone' , 'date' , 'disease' , 'prescription']
 admin.site.register(Appointment , AppointmentAdmin)
+
+class ComplaintAdmin(admin.ModelAdmin):
+       list_display = ['id', 'title', 'date', 'created_at']
+admin.site.register(Complaint, ComplaintAdmin)

@@ -103,3 +103,15 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"Appointment with Dr. {self.doctorname} for {self.username} on {self.date}"
+    
+
+class Complaint(models.Model):
+    # user = models.ForeignKey(UserData, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='complaints/', blank=True, null=True)
+    date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.title} - {self.user.username}"

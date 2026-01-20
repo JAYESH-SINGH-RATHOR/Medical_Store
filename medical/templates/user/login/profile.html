@@ -1,0 +1,24 @@
+{% extends "user/dashboard.html" %} 
+{% load static %}
+{% block title %}User Profile{% endblock title %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/userinfo.css' %}">
+        <div class="personal-info">
+                    <h4 class="section-title">Account Details</h4>
+
+                    <div class="info-item">
+                        <span class="label">Username</span>
+                        <span class="value">{{ request.user.username }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">Last Login</span>
+                        <span class="value">{{ request.user.last_login }}</span>
+                    </div>
+                    </div> 
+                    
+                    
+
+{% endblock body %}
+
+ 
