@@ -28,7 +28,7 @@
 
                 <!-- Action -->
                 <div class="medicine-card-footer">
-                <a href="{{ medicine.medicine_file.url }}"class="medicine-btn"> view Medicine </a>
+                <a href="{% url "add_medicine_details" medicine.id %}"class="medicine-btn"> view Medicine </a>
                 </div>
 
             </div>

@@ -14,17 +14,17 @@ class Medicine(models.Model):
         return self.title
 
 class MedicineDetails(models.Model):
-    medicine = models.ForeignKey(
+     medicine = models.ForeignKey(
         Medicine,
         on_delete=models.CASCADE,
-        related_name="details"
+        related_name='details'
     )
-    description = models.TextField(max_length=500)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    expdate = models.DateField()
-    manufacturer = models.CharField(max_length=100)
+     description = models.TextField(max_length=500)
+     price = models.IntegerField()
+     expdate = models.DateField()
+     manufacturer = models.CharField(max_length=100)
 
-    def __str__(self):
+     def __str__(self):
         return f"Details of {self.medicine.title}"
 
 

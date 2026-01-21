@@ -1,1 +1,63 @@
 {% extends "seller/navbar.html" %}
+{% block title %}Cart{% endblock title %}
+
+{% block body %}
+<style>
+  .cart-card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    padding: 25px;
+  }
+
+  .cart-img {
+    width: 80px;
+    border-radius: 12px;
+  }
+
+  .total-box {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0284c7;
+  }
+</style>
+
+<div class="container my-5">
+  <h2 class="mb-4 fw-bold">Your Cart</h2>
+
+  {% if cart_items %}
+  <div class="cart-card">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr>
+          <td>
+            <img src="{{ item.medicine.image.url }}" class="cart-img me-2">
+            {{ item.medicine.name }}
+          </td>
+          <td>₹{{ item.price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₹{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="text-end mt-4 total-box">
+      Grand Total: ₹{{ total }}
+    </div>
+  </div>
+  {% else %}
+    <p class="text-muted">Your cart is empty.</p>
+  {% endif %}
+</div>
+{% endblock body %}

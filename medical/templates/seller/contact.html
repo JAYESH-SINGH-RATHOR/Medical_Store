@@ -1,1 +1,118 @@
 {% extends "seller/navbar.html" %}
+{% block title %}Contact For Medicine{% endblock title %}
+
+{% block body %}
+
+<style>
+  .order-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 15px;
+  }
+
+  .order-card {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    padding: 35px;
+  }
+
+  .order-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+  }
+
+  .order-subtitle {
+    text-align: center;
+    color: #475569;
+    margin-bottom: 30px;
+  }
+
+  .form-floating label {
+    color: #475569;
+  }
+
+  .form-control {
+    border-radius: 12px;
+    border: none;
+    box-shadow: inset 0 0 0 1px #cbd5f5;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 2px #38bdf8;
+  }
+
+  .submit-btn {
+    background: linear-gradient(135deg, #22d3ee, #38bdf8);
+    border: none;
+    padding: 14px;
+    font-weight: 600;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(56, 189, 248, 0.6);
+  }
+</style>
+
+<section class="order-section">
+  <div class="order-card">
+    <h2 class="order-title">Order Medicine Products</h2>
+    <p class="order-subtitle">Place your medicine order directly to the wholesaler</p>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="row g-3">
+        <div class="col-md-6 form-floating">
+          <input type="text" class="form-control" name="seller_name" placeholder="Seller Name" required>
+          <label>Seller Name</label>
+        </div>
+
+        <div class="col-md-6 form-floating">
+          <input type="email" class="form-control" name="email" placeholder="Email" required>
+          <label>Email Address</label>
+        </div>
+
+        <div class="col-md-6 form-floating">
+          <input type="text" class="form-control" name="medicine_name" placeholder="Medicine Name" required>
+          <label>Medicine Name</label>
+        </div>
+
+        <div class="col-md-6 form-floating">
+          <input type="number" class="form-control" name="quantity" placeholder="Quantity" required>
+          <label>Quantity Required</label>
+        </div>
+
+        <div class="col-md-12 form-floating">
+          <textarea class="form-control" name="address" style="height: 100px" placeholder="Delivery Address" required></textarea>
+          <label>Delivery Address</label>
+        </div>
+
+        <div class="col-md-12 form-floating">
+          <textarea class="form-control" name="message" style="height: 120px" placeholder="Additional Message"></textarea>
+          <label>Additional Message / Instructions</label>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <button type="submit" class="btn submit-btn w-100">
+          <i class="fa-solid fa-paper-plane me-2"></i> Place Order
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock body %}

@@ -1,0 +1,122 @@
+{% extends "seller/navbar.html" %}
+{% load static %}
+
+{% block title %}{{ details.name }}{% endblock title %}
+
+{% block body %}
+
+<style>
+  /* ===== Page Background ===== */
+  body {
+    background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+  }
+
+  /* ===== Card Layout ===== */
+  .medicine-card {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.4s ease;
+  }
+
+  .medicine-card:hover {
+    transform: translateY(-6px);
+  }
+
+  /* ===== Image Section ===== */
+  .medicine-image-container {
+    background: linear-gradient(135deg, #c4d7e0, #38bdf8);
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 15px 35px rgba(14, 165, 233, 0.4);
+  }
+
+  .medicine-image {
+    border-radius: 16px;
+    transition: transform 0.4s ease;
+  }
+
+  .medicine-image:hover {
+    transform: scale(1.08);
+  }
+
+  /* ===== Info Section ===== */
+  .medicine-info-section {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .medicine-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+  }
+
+  .medicine-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0284c7;
+    margin-bottom: 8px;
+  }
+
+  .price-note {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+    margin-left: 8px;
+  }
+
+  .medicine-description {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.8;
+    margin-top: 20px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .medicine-title {
+      font-size: 2rem;
+    }
+
+    .medicine-price {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<div class="container my-5">
+  <div class="row medicine-card p-4 align-items-center">
+
+    <!-- Image Section -->
+    <div class="col-md-5 d-flex justify-content-center align-items-center mb-4 mb-md-0">
+      <div class="medicine-image-container">
+        <img src="{{ details.image.url }}" alt="{{ details.name }}" class="medicine-image w-100">
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="col-md-7">
+      <div class="medicine-info-section p-4">
+        <h1 class="medicine-title">{{ details.name }}</h1>
+
+        <p class="medicine-price">
+          Price : ₹{{ details.price }}
+        </p>
+
+        <p class="medicine-description">
+          {{ details.description }}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock body %}
