@@ -21,8 +21,9 @@
     border-radius: 20px;
     margin: 16px auto;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    width: 50%;
+    width: 60% !important;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-nav .nav-link {
@@ -30,10 +31,10 @@
     padding: 0.6rem 1.1rem;
     border-radius: 12px;
     font-weight: 500;
-    transition: 
-        color 0.3s ease,
+    transition:  color 0.3s ease,
         transform 0.3s ease,
         background-color 0.3s ease;
+       
 }
 
 /* Animated underline */
@@ -54,8 +55,9 @@
     border-radius: 14px;
 }
 .navbar-nav .nav-link:hover::after {
-    width: 70%;
+    width: 60%;
     left: 15%;
+    
 }
 
 /* for index of user app page  */

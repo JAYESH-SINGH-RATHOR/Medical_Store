@@ -1,9 +1,16 @@
 from django.shortcuts import render , HttpResponse ,redirect , get_object_or_404
 from .models import *
+from user.models import SellerUser , WholesellerUser
+from user.views import seller_dashboard
 
 # Create your views here.
 def home(request):
-    return render(request , "wholeseller/personal_details.html")
+    wholeseller_id = request.session.get('wholeseller_id')
+    if not wholeseller_id:
+        return redirect('wholeseller_login')
+
+    wholeseller = get_object_or_404(WholesellerUser, id=wholeseller_id)
+    return render(request,"wholeseller/personal_details.html",{'wholeseller': wholeseller})
 
 def upload_medicine(request):
     if request.method == "POST":
@@ -23,4 +30,10 @@ def delete_medicine(request, id):
     medicine.delete()
     return redirect('history')
 
+
+def registration(request):
+    return render(request , "wholeseller/registration.html")
+
+def login(request):
+    return render(request , "wholeseller/login.html")
 

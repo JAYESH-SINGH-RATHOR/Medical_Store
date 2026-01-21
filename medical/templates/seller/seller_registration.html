@@ -1,0 +1,83 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}Seller Registration{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/seller.css' %}">
+
+<div class="container seller-form-container mt-5">
+
+  <h2>Seller Registration</h2>
+
+  <form method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- Store Information -->
+    <div class="form-section">
+      <h4>Store Information</h4>
+
+      <label for="store_name">Store Name</label>
+      <input type="text" name="store_name" id="store_name" placeholder="Your Store Name" required>
+
+      <label for="gst_number">GST Number</label>
+      <input type="text" name="gst_number" id="gst_number" placeholder="Your GST Number" required>
+
+      <label for="store_address">Store Address</label>
+      <textarea name="store_address" id="store_address" placeholder="Complete Address" rows="3" required></textarea>
+
+      <label for="store_logo">Store Logo</label>
+      <input type="file" name="store_logo" id="store_logo" accept="image/*">
+    </div>
+
+    <!-- Owner Details -->
+    <div class="form-section">
+      <h4>Owner / Contact Person</h4>
+
+      <label for="owner_name">Owner Name</label>
+      <input type="text" name="owner_name" id="owner_name" placeholder="Full Name" required>
+
+      <label for="owner_email">Email</label>
+      <input type="email" name="owner_email" id="owner_email" placeholder="example@mail.com" required>
+
+      <label for="owner_phone">Phone Number</label>
+      <input type="tel" name="owner_phone" id="owner_phone" placeholder="10-digit phone" required>
+    </div>
+
+    <!-- Store Details -->
+    <div class="form-section">
+      <h4>Store Details</h4>
+
+      <label for="store_license">Pharmacy License Number</label>
+      <input type="text" name="store_license" id="store_license" placeholder="License Number" required>
+
+      <label for="store_timing">Store Timings</label>
+      <input type="text" name="store_timing" id="store_timing" placeholder="e.g., 9 AM - 9 PM" required>
+
+      <label for="store_city">City</label>
+      <input type="text" name="store_city" id="store_city" placeholder="City" required>
+
+      <label for="store_state">State</label>
+      <input type="text" name="store_state" id="store_state" placeholder="State" required>
+
+      <label for="store_pincode">Pincode</label>
+      <input type="text" name="store_pincode" id="store_pincode" placeholder="Pincode" required>
+    </div>
+
+    <!-- Login Credentials -->
+    <div class="form-section">
+      <h4>Login Credentials</h4>
+
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" placeholder="Choose a username" required>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Choose a strong password" required>
+
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" name="confirm_password" id="confirm_password" placeholder="Re-enter password" required>
+    </div>
+
+    <button type="submit" class="btn-submit">Register</button>
+  </form>
+</div>
+{% endblock %}

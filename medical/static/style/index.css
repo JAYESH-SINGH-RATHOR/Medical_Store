@@ -1,0 +1,22 @@
+.image-container {
+    position: relative;
+    width: 100%;
+    max-height: 600px; /* optional */
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff; /* text color */
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+

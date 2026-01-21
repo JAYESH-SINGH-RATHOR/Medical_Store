@@ -1,0 +1,63 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}Wholeseller Registration{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/wholeseller.css' %}">
+
+<div class="container wholeseller-form-container mt-5">
+
+  <h2>Wholeseller Registration</h2>
+
+  <form method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- Company Details -->
+    <div class="form-section">
+      <h4>Company Information</h4>
+
+      <label for="company_name">Company Name</label>
+      <input type="text" name="company_name" id="company_name" placeholder="Your Company Name" required>
+
+      <label for="gst_number">GST Number</label>
+      <input type="text" name="gst_number" id="gst_number" placeholder="Your GST Number" required>
+
+      <label for="company_address">Company Address</label>
+      <textarea name="company_address" id="company_address" placeholder="Complete Address" rows="3" required></textarea>
+
+      <label for="company_logo">Company Logo</label>
+      <input type="file" name="company_logo" id="company_logo" accept="image/*">
+    </div>
+
+    <!-- Owner Details -->
+    <div class="form-section">
+      <h4>Owner / Contact Person</h4>
+
+      <label for="owner_name">Owner Name</label>
+      <input type="text" name="owner_name" id="owner_name" placeholder="Full Name" required>
+
+      <label for="owner_email">Email</label>
+      <input type="email" name="owner_email" id="owner_email" placeholder="example@mail.com" required>
+
+      <label for="owner_phone">Phone Number</label>
+      <input type="tel" name="owner_phone" id="owner_phone" placeholder="10-digit phone" required>
+    </div>
+
+    <!-- Login Credentials -->
+    <div class="form-section">
+      <h4>Login Credentials</h4>
+
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" placeholder="Choose a username" required>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Choose a strong password" required>
+
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" name="confirm_password" id="confirm_password" placeholder="Re-enter password" required>
+    </div>
+
+    <button type="submit" class="btn-submit">Register</button>
+  </form>
+</div>
+{% endblock %}

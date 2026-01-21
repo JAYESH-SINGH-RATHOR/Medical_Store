@@ -1,0 +1,95 @@
+/* Container & Title */
+.dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-title {
+    text-align: center;
+    color: #1d3557;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+/* Seller Card */
+.seller-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Store Logo */
+.store-logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #4facfe;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Seller Details */
+.seller-details h3 {
+    color: #4facfe;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.seller-details p {
+    font-size: 15px;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Owner Contact */
+.owner-contact {
+    grid-column: span 2;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.owner-contact h4 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.owner-contact p {
+    font-size: 15px;
+    color: #555;
+    margin: 4px 0;
+}
+
+/* Hover effect for card */
+.seller-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .seller-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .store-logo img {
+        margin: 0 auto 20px;
+    }
+
+    .owner-contact {
+        border-top: none;
+        margin-top: 15px;
+        padding-top: 0;
+    }
+}

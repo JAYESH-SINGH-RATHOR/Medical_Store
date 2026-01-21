@@ -13,41 +13,76 @@
      
   </head>
   <body>
-    <div class="conatiner navitems">
-     <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-solid fa-heart-circle-plus"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/medicine">Medicine</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/test">Lab Test</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/doctor">Consult Doctor</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/cart">Cart</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/registration">Registration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-       
-      </ul>
-    </div>
+  <div class="container navitems">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <i class="fa-solid fa-heart-circle-plus"></i>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="/medicine">Medicine</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/test">Lab Test</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/doctor">Consult Doctor</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/cart">Cart</a>
+            </li>
+
+            <!-- 🔽 Registration Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                Registration
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/registration">User Registration</a></li>
+                <li><a class="dropdown-item" href="/seller_registration">Seller Registration</a></li>
+                <li><a class="dropdown-item" href="/wholeseller_registration">WholeSeller Registration</a></li>
+              </ul>
+            </li>
+
+            <!-- 🔽 Login Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                Login
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/login">User Login</a></li>
+                <li><a class="dropdown-item" href="/seller_login">Seller Login</a></li>
+                <li><a class="dropdown-item" href="/wholeseller_login">WholeSeller Login</a></li>
+              </ul>
+            </li>
+
+          </ul> 
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
-    </div>
-        {% block body %}
-        {% endblock body %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+
+  {% block body %}
+  {% endblock body %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

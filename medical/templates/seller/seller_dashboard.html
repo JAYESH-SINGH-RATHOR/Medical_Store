@@ -1,0 +1,39 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}Seller Dashboard{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/seller_dashboard.css' %}">
+
+<div class="container dashboard-container mt-5">
+
+    <h2 class="dashboard-title">Welcome, {{ seller.owner_name }}</h2>
+
+    <div class="seller-card">
+
+        <!-- Store Logo -->
+        {% if seller.store_logo %}
+        <div class="store-logo">
+            <img src="{{ seller.store_logo.url }}" alt="{{ seller.store_name }} Logo">
+        </div>
+        {% endif %}
+
+        <!-- Store Info -->
+        <div class="seller-details">
+            <h3>{{ seller.store_name }}</h3>
+            <p><strong>GST Number:</strong> {{ seller.gst_number }}</p>
+            <p><strong>Pharmacy License:</strong> {{ seller.store_license }}</p>
+            <p><strong>Store Timings:</strong> {{ seller.store_timing }}</p>
+            <p><strong>Address:</strong> {{ seller.store_address }}, {{ seller.store_city }}, {{ seller.store_state }}, {{ seller.store_pincode }}</p>
+        </div>
+
+        <!-- Owner Contact -->
+        <div class="owner-contact">
+            <h4>Owner </h4>
+            <p><strong>Name:</strong> {{ seller.owner_name }}</p>
+            <p><strong>Email:</strong> {{ seller.email }}</p>
+            <p><strong>Phone:</strong> {{ seller.owner_phone }}</p>
+        </div>
+    </div>
+</div>
+{% endblock body %}

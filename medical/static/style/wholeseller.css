@@ -1,0 +1,98 @@
+/* =========================
+   WHOLESELLER FORM PAGE
+   ========================= */
+
+.wholeseller-form-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.wholeseller-form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+/* Form Sections */
+.wholeseller-form-container .form-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 242, 254, 0.05));
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+}
+
+.wholeseller-form-container .form-section h4 {
+    margin-bottom: 15px;
+    color: #4facfe;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* Labels */
+.wholeseller-form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #1d3557;
+}
+
+/* Inputs */
+.wholeseller-form-container input[type="text"],
+.wholeseller-form-container input[type="email"],
+.wholeseller-form-container input[type="tel"],
+.wholeseller-form-container input[type="password"],
+.wholeseller-form-container input[type="file"],
+.wholeseller-form-container textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 15px;
+    border: 2px solid #cfd8dc;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.wholeseller-form-container input:focus,
+.wholeseller-form-container textarea:focus {
+    border-color: #4facfe;
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.25);
+    outline: none;
+}
+
+/* Submit Button */
+.wholeseller-form-container .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.wholeseller-form-container .btn-submit:hover {
+    background: linear-gradient(135deg, #00f2fe, #4facfe);
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wholeseller-form-container {
+        padding: 20px;
+        margin: 30px auto;
+    }
+}

@@ -1,6 +1,37 @@
-{% extends "WholeSeller/navbar.html" %}
-{% block title %}WholeSeller Profile{% endblock title %}
-{% block body %}
+{% extends "wholeseller/navbar.html" %}
+{% load static %}
+{% block title %}WholeSeller Dashboard{% endblock title %}
 
-name : jayesh
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/wholeseller_dashboard.css' %}">
+
+<div class="container dashboard-container mt-5">
+
+    <h2 class="dashboard-title">Welcome, {{ wholeseller.username }}</h2>
+
+    <div class="seller-card">
+
+        <!-- Store Logo -->
+        {% if wholeseller.company_logo %}
+        <div class="store-logo">
+            <img src="{{ wholeseller.company_logo.url }}" alt="{{ wholeseller.company_name }} Logo">
+        </div>
+        {% endif %}
+
+        <!-- Store Info -->
+        <div class="seller-details">
+            <h3 >{{ wholeseller.company_name }}</h3>
+            <p><strong>GST Number:</strong> {{ wholeseller.gst_number }}</p>
+            <p><strong>Address:</strong> {{ wholeseller.company_address }}</p>
+        </div>
+
+        <!-- Owner Contact -->
+        <div class="owner-contact">
+            <h4>Owner </h4>
+            <p><strong>Name:</strong> {{ wholeseller.owner_name }}</p>
+            <p><strong>Email:</strong> {{ wholeseller.owner_email }}</p>
+            <p><strong>Phone:</strong> {{ wholeseller.owner_phone }}</p>
+        </div>
+    </div>
+</div>
 {% endblock body %}

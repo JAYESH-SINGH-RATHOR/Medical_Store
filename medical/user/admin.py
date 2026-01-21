@@ -67,3 +67,14 @@ admin.site.register(Appointment , AppointmentAdmin)
 class ComplaintAdmin(admin.ModelAdmin):
        list_display = ['id', 'title', 'date', 'created_at']
 admin.site.register(Complaint, ComplaintAdmin)
+
+@admin.register(SellerUser)
+class SellerAdmin(admin.ModelAdmin):
+    list_display = ('store_name', 'username', 'email', 'owner_name', 'store_city', 'store_state', 'created_at')
+    search_fields = ('store_name', 'username', 'email', 'owner_name', 'store_city')
+    list_filter = ('store_city', 'store_state')
+
+@admin.register(WholesellerUser)
+class WholesellerUserAdmin(admin.ModelAdmin):
+    list_display = ('company_name', 'owner_name', 'owner_email', 'username')
+    search_fields = ('company_name', 'owner_name', 'owner_email', 'username')

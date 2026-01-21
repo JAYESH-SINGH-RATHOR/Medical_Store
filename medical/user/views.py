@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.hashers import make_password, check_password
 
 def home(request):
     return render(request , 'user/index.html')
@@ -222,3 +223,116 @@ def profile(request):
 
 def page_not_found(request , exception):
     return render(request , "user/error.html" , status=404)
+
+def seller_registration(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+        email = request.POST['owner_email']
+
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match!")
+            return redirect('seller_register')
+
+        seller = SellerUser(
+            username=username,
+            password=password,
+            email=email,
+            store_name=request.POST['store_name'],
+            gst_number=request.POST['gst_number'],
+            store_address=request.POST['store_address'],
+            store_license=request.POST['store_license'],
+            store_timing=request.POST['store_timing'],
+            store_city=request.POST['store_city'],
+            store_state=request.POST['store_state'],
+            store_pincode=request.POST['store_pincode'],
+            owner_name=request.POST['owner_name'],
+            owner_phone=request.POST['owner_phone'],
+            store_logo=request.FILES.get('store_logo')
+        )
+        seller.save()
+        messages.success(request, "Seller registered successfully!")
+        return redirect('seller_login')
+    return render(request , 'seller/seller_registration.html')
+
+def wholeseller_registration(request):
+    if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            confirm_password = request.POST.get('confirm_password')
+            owner_email = request.POST.get('owner_email')  # <-- Match the form field
+            owner_name = request.POST.get('owner_name')
+            owner_phone = request.POST.get('owner_phone')
+            company_name = request.POST.get('company_name')
+            gst_number = request.POST.get('gst_number')
+            company_address = request.POST.get('company_address')
+            company_logo = request.FILES.get('company_logo')
+
+            # Password validation
+            if password != confirm_password:
+                messages.error(request, "Passwords do not match!")
+                return render(request, 'wholeseller_registration.html')
+
+            # Save wholeseller
+            wholeseller = WholesellerUser(
+                username=username,
+                password=make_password(password),  # hash password
+                owner_email=owner_email,
+                owner_name=owner_name,
+                owner_phone=owner_phone,
+                company_name=company_name,
+                gst_number=gst_number,
+                company_address=company_address,
+                company_logo=company_logo
+            )
+            wholeseller.save()
+            messages.success(request, "Wholeseller registered successfully!")
+            return redirect('wholeseller_login')
+    return render(request , 'wholeseller/wholeseller_registration.html')
+
+def seller_login(request):
+     if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        try:
+            seller = SellerUser.objects.get(username=username)
+            if check_password(password, seller.password):
+                request.session['seller_id'] = seller.id
+                return redirect('seller_home')  
+            else:
+                messages.error(request, "Incorrect password!")
+        except SellerUser.DoesNotExist:
+            messages.error(request, "Seller not found!")
+     return render(request , 'seller/seller_login.html')
+
+def wholeseller_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        try:
+            wholeseller = WholesellerUser.objects.get(username=username)
+            if check_password(password, wholeseller.password):
+                request.session['wholeseller_id'] = wholeseller.id
+                return redirect('wholeseller_home')
+            else:
+                messages.error(request, "Incorrect password!")
+        except WholesellerUser.DoesNotExist:
+            messages.error(request, "Wholeseller not found!")
+    return render(request , 'wholeseller/wholeseller_login.html')
+
+
+
+def seller_dashboard(request):
+    seller_id = request.session.get('seller_id')
+    if not seller_id:
+        return redirect('seller_login')
+    seller = get_object_or_404(SellerUser, id=seller_id)
+    return render(request, 'seller/seller_dashboard.html', {'seller': seller})
+
+def wholeseller_dashboard(request):
+    wholeseller_id = request.session.get('wholeseller_id')
+    if not wholeseller_id:
+        return redirect('wholeseller_login')
+    wholeseller = get_object_or_404(WholesellerUser, id=wholeseller_id)
+    return render(request, 'wholeseller/wholeseller_dashboard.html', {'wholeseller': wholeseller})

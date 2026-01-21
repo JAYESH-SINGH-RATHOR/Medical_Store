@@ -32,5 +32,11 @@ urlpatterns = [
     # path('dashboard/complaint/delete/<int:id>/', views.delete_complaint, name='delete_complaint'),
     path('dashboard/help', views.help, name='help'),
     path('dashboard/profile', views.profile, name='profile'),
-    
+    path('seller_registration', views.seller_registration, name='seller_registration'),
+    path('wholeseller_registration', views.wholeseller_registration, name='wholeseller_registration'),
+    path('seller_login', views.seller_login, name='seller_login'),
+    path('wholeseller_login', views.wholeseller_login, name='wholeseller_login'),
+    path('seller_dashboard', views.seller_dashboard, name='seller_dashboard'),
+    path('wholeseller_dashboard', views.wholeseller_dashboard, name='wholeseller_dashboard'),
+
 ]

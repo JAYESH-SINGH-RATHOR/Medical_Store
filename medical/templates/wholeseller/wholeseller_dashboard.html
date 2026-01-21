@@ -1,0 +1,23 @@
+{% extends "user/navbar.html" %}
+{% load static %}
+{% block title %}WholeSeller Dashboard{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'style/wholeseller_dashboard.css' %}">
+
+<h2 class="dashboard-title">Welcome, {{ seller.username }}</h2>
+
+{% if seller.store_logo %}
+<img src="{{ seller.store_logo.url }}" alt="{{ seller.store_name }}">
+{% endif %}
+
+<h3>{{ seller.store_name }}</h3>
+<p><strong>GST Number:</strong> {{ seller.gst_number }}</p>
+<p><strong>Address:</strong> {{ seller.store_address }}</p>
+
+<h4>Owner</h4>
+<p><strong>Name:</strong> {{ seller.owner_name }}</p>
+<p><strong>Email:</strong> {{ seller.email }}</p>
+<p><strong>Phone:</strong> {{ seller.owner_phone }}</p>
+
+{% endblock body %}
