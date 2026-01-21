@@ -1,0 +1,101 @@
+/* ===================================
+   UPLOAD MEDICINE PAGE – WHOLESALER
+   =================================== */
+
+body {
+    background: linear-gradient(120deg, #e8f5e9, #e3f2fd);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Main Container */
+.container {
+    margin-top: 60px;
+}
+
+/* Card Style */
+.col-md-6 {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Top Border */
+.col-md-6::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, #43a047, #66bb6a);
+}
+
+/* Page Title */
+h3 {
+    text-align: center;
+    font-weight: 700;
+    color: #2e7d32;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 12px;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus */
+.form-control:focus {
+    border-color: #43a047;
+    box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+}
+
+/* File Input */
+input[type="file"] {
+    padding: 10px;
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Upload Button */
+.btn-primary {
+    width: 100%;
+    border-radius: 25px;
+    padding: 12px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Button Hover */
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Button Active */
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .col-md-6 {
+        padding: 25px;
+    }
+}

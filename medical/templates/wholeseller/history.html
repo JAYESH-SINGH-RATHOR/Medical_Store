@@ -1,0 +1,46 @@
+{% extends "WholeSeller/navbar.html" %}
+{% load static %}
+{% block title %}History{% endblock title %}
+{% block body %}
+   <link rel="stylesheet" href="{% static 'style/Medine_history.css' %}">
+
+<div class="container">
+  <h3 class="my-4">Uploaded Medicines</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>File</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for medicine in medicines %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ medicine.name }}</td>
+        <td>₹{{ medicine.price }}</td>
+        <td>
+          <a href="{{ medicine.medicine_file.url }}" target="_blank">View</a>
+        </td>
+        <td>
+          <form method="post" action="{% url 'delete_medicine' medicine.id %}">
+            {% csrf_token %}
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" class="text-center">No data found</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock body %}

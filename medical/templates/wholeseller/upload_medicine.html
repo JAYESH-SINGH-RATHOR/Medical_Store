@@ -1,0 +1,30 @@
+{% extends "WholeSeller/navbar.html" %}
+{% load static %}
+{% block title %}Upload Medicine{% endblock title %}
+{% block body %}
+   <link rel="stylesheet" href="{% static 'style/upload_medicine.css' %}">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h3 class="mt-4">Upload Medicine</h3>
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Medicine Name</label>
+        <input type="text" name="medicine_name" class="form-control" required>
+
+        <label class="mt-2">Price</label>
+        <input type="text" name="price" class="form-control" required>
+
+        <label class="mt-2">File</label>
+        <input type="file" name="medicine_file" class="form-control" required>
+
+        <button class="btn btn-primary mt-3">Upload</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

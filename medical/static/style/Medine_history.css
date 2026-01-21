@@ -1,0 +1,117 @@
+/* ===============================
+   WHOLESALER HISTORY PAGE STYLE
+   =============================== */
+
+body {
+    background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Container Styling */
+.container {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Page Title */
+.container h3 {
+    font-weight: 700;
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Table Base */
+.table {
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+
+/* Table Header */
+.table thead th {
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    border: none;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/* Rounded Header */
+.table thead th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.table thead th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Table Rows */
+.table tbody tr {
+    background: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover Effect */
+.table tbody tr:hover {
+    transform: scale(1.01);
+    background: #f9fff9;
+}
+
+/* Table Cells */
+.table tbody td {
+    text-align: center;
+    padding: 14px;
+    vertical-align: middle;
+    border: none;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Price Styling */
+.table tbody td:nth-child(3) {
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+/* File Link */
+.table tbody td a {
+    color: #1e88e5;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.table tbody td a:hover {
+    text-decoration: underline;
+}
+
+/* Delete Button */
+.btn-danger {
+    background: linear-gradient(135deg, #e53935, #ef5350);
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c62828, #e53935);
+    transform: scale(1.05);
+}
+
+/* Empty Row */
+.table tbody tr td.text-center {
+    font-style: italic;
+    color: #777;
+    background: transparent;
+    box-shadow: none;
+}

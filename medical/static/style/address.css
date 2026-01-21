@@ -1,0 +1,93 @@
+/* Page background */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Address card */
+form {
+    max-width: 520px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Heading */
+h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #fffddd;
+    letter-spacing: 0.5px;
+}
+
+/* Inputs & textarea */
+form input,
+form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    color: #333;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Placeholder color */
+form input::placeholder,
+form textarea::placeholder {
+    color: #777;
+}
+
+/* Hover & focus effects */
+form input:focus,
+form textarea:focus {
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Textarea */
+form textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Button */
+form button {
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Button hover */
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 94, 98, 0.5);
+}
+
+/* Mobile friendly */
+@media (max-width: 576px) {
+    form {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}

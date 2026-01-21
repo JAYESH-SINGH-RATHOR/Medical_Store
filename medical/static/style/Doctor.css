@@ -33,8 +33,8 @@ button {
   border-radius: 50%;
   overflow: hidden;
   margin: 20px auto 0;
-  background: transparent;    /* 🔥 NO background */
-  padding: 0;                 /* 🔥 removes ring */
+  background: transparent;    
+  padding: 0;                 
   display: flex;
   align-items: center;
   justify-content: center;

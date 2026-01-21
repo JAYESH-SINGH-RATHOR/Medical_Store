@@ -217,13 +217,8 @@ def help(request):
     return render(request , 'user/login/bot.html')
 
 def profile(request):
-    # complaints = Complaint.objects.filter(user=request.user).order_by('-created_at')
     return render(request, "user/login/profile.html")
 
-# @login_required
-# def delete_complaint(request, id):
-#     complaint = get_object_or_404(Complaint, id=id, user=request.user)
 
-#     if request.method == 'POST':
-#         complaint.delete()
-#         return redirect('profile')
+def page_not_found(request , exception):
+    return render(request , "user/error.html" , status=404)
