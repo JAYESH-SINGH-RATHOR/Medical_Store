@@ -1,19 +1,21 @@
 {% extends "WholeSeller/navbar.html" %}
 {% load static %}
 {% block title %}History{% endblock title %}
+
 {% block body %}
-   <link rel="stylesheet" href="{% static 'style/Medine_history.css' %}">
+<link rel="stylesheet" href="{% static 'style/Medine_history.css' %}">
 
 <div class="container">
   <h3 class="my-4">Uploaded Medicines</h3>
 
-  <table class="table table-bordered">
+  <table class="table table-bordered text-center align-middle">
     <thead>
       <tr>
-        <th>id</th>
+        <th>#</th>
+        <th>Image</th>
         <th>Name</th>
         <th>Price</th>
-        <th>File</th>
+        {% comment %} <th>File</th> {% endcomment %}
         <th>Action</th>
       </tr>
     </thead>
@@ -22,11 +24,23 @@
       {% for medicine in medicines %}
       <tr>
         <td>{{ forloop.counter }}</td>
+
+        <!-- IMAGE COLUMN -->
+        <td>
+          {% if medicine.image %}
+            <img src="{{ medicine.image.url }}" alt="{{ medicine.name }}" width="70" height="70" style="object-fit: cover;">
+          {% else %}
+            <span>No Image</span>
+          {% endif %}
+        </td>
+
         <td>{{ medicine.name }}</td>
         <td>₹{{ medicine.price }}</td>
-        <td>
+
+        {% comment %} <td>
           <a href="{{ medicine.medicine_file.url }}" target="_blank">View</a>
-        </td>
+        </td> {% endcomment %}
+
         <td>
           <form method="post" action="{% url 'delete_medicine' medicine.id %}">
             {% csrf_token %}
@@ -36,7 +50,7 @@
       </tr>
       {% empty %}
       <tr>
-        <td colspan="5" class="text-center">No data found</td>
+        <td colspan="6" class="text-center">No data found</td>
       </tr>
       {% endfor %}
     </tbody>
