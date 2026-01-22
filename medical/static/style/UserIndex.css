@@ -1,0 +1,401 @@
+/* ============================
+   GLOBAL FIX (NO OVERFLOW)
+============================ */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    color: #1f2937;
+}
+
+/* Remove default button styling safely */
+button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* ============================
+   CONTAINER
+============================ */
+.container {
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* ============================
+   CAROUSEL
+============================ */
+.carousel {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+}
+
+.carousel:hover {
+    transform: scale(1.005);
+}
+
+.carousel-item img {
+    height: 480px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.06);
+}
+
+/* ============================
+   CAPTION
+============================ */
+.carousel-caption {
+    bottom: 15%;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    animation: fadeUp 1s ease;
+}
+
+.carousel-caption h5 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.carousel-caption p {
+    color: #f1f5f9;
+}
+
+/* ============================
+   INDICATORS
+============================ */
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-indicators .active {
+    width: 28px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #22c55e, #0ea5e9);
+}
+
+/* ============================
+   ABOUT SECTION
+============================ */
+.about-section {
+    margin-top: 70px;
+    padding: 50px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ffffff, #ecfeff);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================
+   TEXT
+============================ */
+.about-section h3 {
+    font-size: 34px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #0ea5e9, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* ============================
+   ABOUT IMAGE (UNIQUE STYLE)
+============================ */
+.about-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-image:hover {
+    transform: translateY(-12px) scale(1.04);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================
+   ANIMATION
+============================ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .about-section {
+        padding: 25px;
+    }
+}
+
+/* whyus */
+
+/* ============================
+   WHY CHOOSE US SECTION
+============================ */
+.whyus-section {
+    margin-top: 80px;
+    padding: 60px;
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.9), rgba(236,254,255,0.9)),
+        radial-gradient(circle at top right, #22c55e, transparent 40%);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative blur blob */
+.whyus-section::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    border-radius: 50%;
+    filter: blur(120px);
+    top: -80px;
+    left: -80px;
+    opacity: 0.4;
+}
+
+/* ============================
+   HEADING
+============================ */
+.whyus-content h3 {
+    font-size: 38px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #0ea5e9, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================
+   LIST STYLING
+============================ */
+.whyus-list {
+    list-style: none;
+    padding: 0;
+}
+
+.whyus-list li {
+    position: relative;
+    padding: 14px 18px 14px 55px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f2937;
+    cursor: default;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Medical check icon */
+.whyus-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #22c55e, #0ea5e9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover interaction */
+.whyus-list li:hover {
+    transform: translateX(12px) scale(1.03);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* ============================
+   IMAGE STYLE
+============================ */
+.whyus-image {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 26px;
+    object-fit: cover;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.6s ease,
+        box-shadow 0.6s ease;
+}
+
+/* Image hover effect */
+.whyus-image:hover {
+    transform: rotate(-1deg) scale(1.06);
+    box-shadow:
+        0 45px 90px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+    .whyus-section {
+        padding: 30px;
+    }
+
+    .whyus-content h3 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .whyus-list li {
+        font-size: 15px;
+    }
+
+    .whyus-image {
+        margin-top: 30px;
+    }
+}
+
+
+/* contact form  */
+
+/* ============================
+   CONTACT FORM – CLEAN STYLE
+============================ */
+.clean-form {
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================
+   HEADINGS
+============================ */
+.clean-form h3 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: #0f172a;
+}
+
+.clean-form .contact-subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 35px;
+}
+
+/* ============================
+   LABELS
+============================ */
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* ============================
+   INPUTS
+============================ */
+.contact-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 14px;
+    background: #f8fafc;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-input:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+/* ============================
+   TEXTAREA
+============================ */
+.contact-input textarea {
+    resize: none;
+}
+
+/* ============================
+   SUBMIT BUTTON
+============================ */
+.contact-btn-alt {
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    background: #0ea5e9;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn-alt:hover {
+    background: #0284c7;
+    transform: translateY(-2px);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+    .clean-form {
+        padding: 30px;
+    }
+
+    .clean-form h3 {
+        font-size: 26px;
+    }
+}

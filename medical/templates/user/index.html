@@ -4,11 +4,136 @@
 {% block title %}Home || Page{% endblock title %}
 
 {% block body %}
-<div class="image-container">
-    <img src="{% static 'user/image/background_img.jpg' %}" alt="background_img">
-    <div class="overlay-text">
-        <h1>Welcome to My Page</h1>
-        <p>This text appears on the image</p>
+<link rel="stylesheet" href="{% static 'style/UserIndex.css' %}" />
+
+<div class="container">
+
+    <!-- CAROUSEL -->
+    <div class="row">
+        {% for item in crosusel %}
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                    class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{item.img1.url}}" class="d-block w-100" alt="{{item.title}}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{item.title}}</h5>
+                        <p>{{item.description}}</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{item.img2.url}}" class="d-block w-100" alt="{{item.title2}}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{item.title2}}</h5>
+                        <p>{{item.description2}}</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{item.img3.url}}" class="d-block w-100" alt="{{item.title3}}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{item.title3}}</h5>
+                        <p>{{item.description3}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        {% endfor %}
     </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="row about-section">
+        {% for data in about %}
+        <div class="col-md-6">
+            <h3>{{data.heading}}</h3>
+            <p>{{data.description1}}</p>
+            <p>{{data.description2}}</p>
+            <p>{{data.description3}}</p>
+        </div>
+
+        <div class="col-md-6">
+            <img src="{{data.image.url}}" alt="{{data.heading}}" class="img-fluid about-image">
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- why us -->
+    <div class="row whyus-section align-items-center">
+    <div class="col-md-6 whyus-content">
+        <h3>Why Choose Us?</h3>
+        <ul class="whyus-list">
+            <li>Experienced and Qualified Medical Professionals</li>
+            <li>Comprehensive Range of Services</li>
+            <li>State-of-the-Art Facilities and Technology</li>
+            <li>Patient-Centered Care Approach</li>
+            <li>Convenient Location and Accessibility</li>
+            <li>Commitment to Quality and Safety</li>
+        </ul>
+    </div>
+
+    <div class="col-md-6 text-center">
+        <img src="{% static 'images/why_us.jpg' %}" alt="Why Choose Us" class="whyus-image">
+    </div>
+</div>
+
+   <div class="row contact-section justify-content-center mt-5">
+    <div class="col-lg-8">
+        <div class="contact-card clean-form">
+
+            <h3>Contact Us</h3>
+            <p class="contact-subtitle">
+                Have a question or need help? Send your query to our support team.
+            </p>
+
+            <form method="post" >
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="contact-input" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="contact-input" required>
+                    </div>
+                </div>
+
+                <label class="form-label mt-3">Subject</label>
+                <input type="text" name="subject" class="contact-input" required>
+
+                <label class="form-label mt-3">Message</label>
+                <textarea name="message" rows="4" class="contact-input" required></textarea>
+
+                <button type="submit" class="contact-btn-alt">
+                    Submit Query
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
 </div>
 {% endblock body %}

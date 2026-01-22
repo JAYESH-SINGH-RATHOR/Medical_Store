@@ -9,7 +9,25 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import make_password, check_password
 
 def home(request):
-    return render(request , 'user/index.html')
+    crosusel = Crosusel.objects.all()
+    about = About.objects.all()
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        contactt = ContactUser(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+        contactt.save()
+
+        messages.success(request, "Your query has been sent successfully!")
+        return redirect("home")
+    return render(request , 'user/index.html', {"crosusel": crosusel, "about": about})
 
 def test(request):
     labtests = Labtest.objects.all()

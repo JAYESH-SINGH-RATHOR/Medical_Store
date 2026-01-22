@@ -176,3 +176,37 @@ class WholesellerUser(models.Model):
 
     def __str__(self):
      return f"{self.company_name} - {self.owner_name}"
+
+class Crosusel(models.Model):
+    title = models.CharField(max_length=100)
+    title2 = models.CharField(max_length=100)
+    title3 = models.CharField(max_length=100)
+    description = models.TextField()
+    description2 = models.TextField()
+    description3 = models.TextField()
+    img1 = models.ImageField(upload_to='crosusel/')
+    img2 = models.ImageField(upload_to='crosusel/')
+    img3 = models.ImageField(upload_to='crosusel/')
+
+    def __str__(self):
+        return self.title
+
+class About(models.Model):
+    heading = models.CharField(max_length=100)
+    description1 = models.TextField()
+    description2 = models.TextField()
+    description3 = models.TextField()
+    image = models.ImageField(upload_to='about/')
+
+    def __str__(self):
+        return self.heading
+    
+class ContactUser(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Contact from {self.name} - {self.subject}"

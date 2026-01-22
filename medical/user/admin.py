@@ -78,3 +78,17 @@ class SellerAdmin(admin.ModelAdmin):
 class WholesellerUserAdmin(admin.ModelAdmin):
     list_display = ('company_name', 'owner_name', 'owner_email', 'username')
     search_fields = ('company_name', 'owner_name', 'owner_email', 'username')
+
+@admin.register(Crosusel)
+class CrosuselAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description','title2', 'description2', 'title3', 'description3', 'img1', 'img2', 'img3')
+    search_fields = ('title', 'description')
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ('id','heading', 'description1', 'description2', 'description3', 'image')
+    search_fields = ('heading', 'description1', 'description2', 'description3')
+
+@admin.register(ContactUser)
+class ContactQueryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'email', 'subject', 'message', 'created_at')

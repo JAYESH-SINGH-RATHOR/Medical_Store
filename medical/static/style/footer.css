@@ -1,0 +1,121 @@
+/* ============================
+   FOOTER SECTION
+============================ */
+.footer-section {
+    margin-top: 100px;
+    padding: 70px 0 30px;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e5e7eb;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative gradient glow */
+.footer-section::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(14,165,233,0.35), transparent 60%);
+    top: -120px;
+    right: -120px;
+}
+
+/* ============================
+   FOOTER CONTENT
+============================ */
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================
+   BRAND
+============================ */
+.footer-brand h4 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
+
+.footer-brand p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #cbd5f5;
+}
+
+/* ============================
+   LINKS
+============================ */
+.footer-links h5,
+.footer-contact h5 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #f8fafc;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #cbd5f5;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #38bdf8;
+    padding-left: 6px;
+}
+
+/* ============================
+   CONTACT
+============================ */
+.footer-contact p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #cbd5f5;
+}
+
+/* ============================
+   DIVIDER
+============================ */
+.footer-divider {
+    margin: 40px 0 20px;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================
+   FOOTER BOTTOM
+============================ */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .footer-section {
+        padding: 50px 0 20px;
+    }
+}

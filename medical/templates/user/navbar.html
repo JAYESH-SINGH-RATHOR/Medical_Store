@@ -80,9 +80,73 @@
   {% block body %}
   {% endblock body %}
 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
+
+    {% block footer %}
+    <link rel="stylesheet" href="{% static 'style/footer.css' %}">
+<footer class="footer-section">
+    <div class="container">
+        <div class="row footer-content">
+
+            <!-- Brand / About -->
+            <div class="col-md-4 footer-brand">
+                <h4>MedCare+</h4>
+                <p>
+                    MedCare+ is a modern medical service platform providing
+                    reliable healthcare solutions, online consultations,
+                    and secure patient support.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-2 footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Doctors</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="col-md-3 footer-links">
+                <h5>Our Services</h5>
+                <ul>
+                    <li>Online Consultation</li>
+                    <li>Appointment Booking</li>
+                    <li>Medical Records</li>
+                    <li>Emergency Support</li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-3 footer-contact">
+                <h5>Contact Us</h5>
+                <p>📍 India</p>
+                <p>📧 support@medcare.com</p>
+                <p>📞 +91 98765 43210</p>
+            </div>
+
+        </div>
+
+        <!-- Divider -->
+        <hr class="footer-divider">
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            <p>© {{ now|date:"Y" }} MedCare+. All Rights Reserved.</p>
+            <p>Designed & Developed by MedCare Team</p>
+        </div>
+    </div>
+</footer>
+
+    {% endblock footer %}
+
+
 </body>
 
 </html>
